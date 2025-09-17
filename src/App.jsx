@@ -6,9 +6,12 @@ import './App.css'
 function App() {
   const [count, setCount] = useState(0)
   const [arr, addArray] = useState([])
+  count [str, inputText] = useState('')
 
-  const saveName = (name) => {
-    addArray([...arr, name])
+  const saveName = () => {
+    if (str.trim() === '') return // не добавляем пустую строку
+    setArr([...arr, str]) // добавляем введённый текст в массив
+    setStr('') // очищаем input
   }
 
   return (
@@ -33,6 +36,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <input type="text" value={str} onChange={saveName(str)}/>
       <button onClick={() => saveName('hello world')}>
           Add text
         </button>

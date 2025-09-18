@@ -26,18 +26,15 @@ function App() {
       </div>
       <h1>Vite + React + Test</h1>
 
-      {/* сумма только если элементы — числа */}
-      <div>
-        Сумма:{' '}
-        {arr.reduce((acc, val) => acc + (isNaN(val) ? 0 : Number(val)), 0)}
-      </div>
+      {/* просто количество элементов в массиве */}
+      <div>Всего людей: {arr.length}</div>
 
       <div className="card">
         <button onClick={() => setCount(count + 1)}>
           count is {count}
         </button>
 
-        <button onClick={saveName}>Add text</button>
+        <button onClick={saveName}>Добавить</button>
 
         <input
           type="text"
@@ -46,7 +43,7 @@ function App() {
           onKeyDown={(e) => {
             if (e.key === 'Enter') saveName()
           }}
-          placeholder="Введите число или текст"
+          placeholder="Введите имя"
         />
 
         <ul>

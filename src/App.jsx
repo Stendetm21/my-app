@@ -1,12 +1,12 @@
-import { use, useState } from 'react'
+import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-  const [arr, addArray] = useState([])
-  count [str, inputText] = useState('')
+  const [arr, setArr] = useState([])
+  const [str, setStr] = useState('') // состояние input
 
   const saveName = () => {
     if (str.trim() === '') return // не добавляем пустую строку
@@ -25,22 +25,26 @@ function App() {
         </a>
       </div>
       <h1>Vite + React + Test</h1>
+
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button onClick={() => setCount(count + 1)}>
           count is {count}
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+
+        <input
+          type="text"
+          value={str}
+          onChange={(e) => setStr(e.target.value)}
+          placeholder="Введите текст"
+        />
+        <button onClick={saveName}>Add text</button>
+
+        <ul>
+          {arr.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <input type="text" value={str} onChange={saveName(str)}/>
-      <button onClick={() => saveName('hello world')}>
-          Add text
-        </button>
-      <p>{arr}</p>
     </>
   )
 }

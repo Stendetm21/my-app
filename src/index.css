@@ -45,6 +45,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  margin: 20px;
 }
 button:hover {
   border-color: #646cff;
@@ -52,6 +53,21 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+input {
+  padding: 10px 14px;
+  border: 2px solid #e2e8f0; /* светло-серый */
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  width: 200px;
+}
+
+input:focus {
+  border-color: #3b82f6; /* голубой акцент */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
 }
 
 @media (prefers-color-scheme: light) {

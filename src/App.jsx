@@ -1,51 +1,57 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
 
 function App() {
-  const [count, setCount] = useState(0)
   const [arr, setArr] = useState([])
-  const [str, setStr] = useState('') // состояние input
+  const [input, setInput] = useState("")
 
-  const saveName = () => {
-    if (str.trim() === '') return // не добавляем пустую строку
-    setArr([...arr, str]) // добавляем введённый текст в массив
-    setStr('') // очищаем input
+  const addNumber = () => {
+    if (input.trim() === "" || isNaN(input)) return
+    setArr([...arr, Number(input)])
+    setInput("") // очистить инпут
   }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React + Test</h1>
+    <div style={{ padding: "20px", fontFamily: "sans-serif" }}>
+      <h1>Сумма чисел</h1>
 
-      <div className="card">
-        <button onClick={() => setCount(count + 1)}>
-          count is {count}
-        </button>
-
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          addNumber()
+        }}
+      >
         <input
           type="text"
-          value={str}
-          onChange={(e) => setStr(e.target.value)}
-          placeholder="Введите текст"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Введите число..."
+          style={{
+            padding: "8px 12px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+            marginRight: "10px",
+          }}
         />
-        <button onClick={saveName}>Add text</button>
+        <button
+          type="submit"
+          style={{
+            padding: "8px 16px",
+            border: "none",
+            borderRadius: "8px",
+            background: "#4cafef",
+            color: "white",
+            cursor: "pointer",
+          }}
+        >
+          Добавить
+        </button>
+      </form>
 
-        <ul>
-          {arr.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+      <div style={{ marginTop: "20px" }}>
+        <p>Элементы: {arr.join(", ") || "пусто"}</p>
+        <p>Сумма: {arr.reduce((acc, val) => acc + val, 0)}</p>
       </div>
-    </>
+    </div>
   )
 }
 

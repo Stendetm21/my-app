@@ -24,7 +24,7 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React + Test</h1>
+      <h1>Vite + React</h1>
 
       {/* просто количество элементов в массиве */}
       <div>Всего людей: {arr.length}</div>
@@ -45,7 +45,13 @@ function App() {
           }}
           placeholder="Введите имя"
         />
-
+      <div>
+        <ul>
+          {arr.map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>        
+      </div>
         <ul>
           {arr.map((item, index) => (
             <li key={index}>{item}</li>

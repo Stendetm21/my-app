@@ -47,3 +47,8 @@
   border: 1px, solid, blue;
   border-radius: 5px;
 }
+
+.arrName:hover {
+  border-color: green;
+  border-width: 2px;
+}

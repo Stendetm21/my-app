@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.arrName {
+  display: flex;
+  padding: 10px;
+  border: 1px, solid, blue;
+  border-radius: 5px;
+}

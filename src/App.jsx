@@ -45,7 +45,7 @@ function App() {
           }}
           placeholder="Введите имя"
         />
-      <div>
+      <div className='arrName'>
         <ul>
           {arr.map((item, index) => (
             <li key={index}>{item}</li>

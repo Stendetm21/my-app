@@ -3,13 +3,20 @@ import './App.css'
 
 function App() {
 
-  const state = useState()
+  const [likes, setlikes] = useState(0)
 
-  let likes = 0;
+  function increment {
+    return setlikes(likes + 1)
+  };
+
+  function decrement {
+    return setlikes(likes - 1)
+  };
+
   return (
     <div className='App'>
-      <button onClick={() => likes += 1}>increment</button>
-      <button onClick={() => likes -= 1}>decrement</button>
+      <button onClick={increment}>increment</button>
+      <button onClick={decrement}>decrement</button>
       <div>{likes}</div>
     </div>
   );

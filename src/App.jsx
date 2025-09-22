@@ -6,11 +6,11 @@ function App() {
   const [likes, setlikes] = useState(0)
 
   function increment {
-    return setlikes(likes + 1)
+    setlikes(likes + 1)
   };
 
   function decrement {
-    return setlikes(likes - 1)
+    setlikes(likes - 1)
   };
 
   return (

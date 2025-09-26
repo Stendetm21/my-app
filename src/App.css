@@ -1,46 +1,40 @@
 #root {
   font-family: Arial, sans-serif;
-  background-color: #e0e0e0;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  background-color: rgb(59, 35, 35);
+  background-color: #121212;
+  min-width: 80%;
 }
 .App {
   display: flex;
   flex-direction: column;
   width: 60%;
-  min-height: 600px;
-  min-width: 800px;
+  min-height: 80%;
+  min-width: 100%;
+  background-color: #1E1E1E;
 }
 
 .header {
+  display: flex;
   padding: 10px;
   text-align: center;
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 20px;
-}
-
-.counter, .class-counter {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 20px;
-  margin: 10px auto;
-  width: 80%;
-  text-align: center;
+  justify-content: space-around;
 }
 
 button {
-  padding: 10px 20px;
-  margin: 5px;
-  font-size: 16px;
-  cursor: pointer;
+  background: transparent;
   border: none;
-  border-radius: 5px;
-  background-color: #007bff;
-  color: white;
+  color: #E0E0E0;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+button:hover {
+  color: #8e97cc;
 }

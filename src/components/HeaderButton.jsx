@@ -1,14 +1,15 @@
 import React from "react";
 import { useState } from "react";
 
-function HeaderButton() {
+function HeaderButton({ title }) {
     const [isActive, setIsActive] = useState(false);
     function toggleActive() {
         setIsActive(!isActive);
     }
+    console.log(title);
     return (
         <button className={isActive ? 'active' : ''} onClick={toggleActive}>
-            {isActive ? 'Active' : 'Inactive'}
+            {title}
         </button>
     )
 }

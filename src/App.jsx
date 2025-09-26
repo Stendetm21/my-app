@@ -1,13 +1,17 @@
 import { useState } from 'react'
 import './App.css'
-import Counter from './components/Counter'
-import ClassCounter from './components/ClassCounter';
+import HeaderButton from './components/HeaderButton';
 
 function App() {
   return (
     <div className='App'>
-      <Counter />
-      <ClassCounter />
+      <div className='header'>
+        <HeaderButton />
+        <HeaderButton />
+        <HeaderButton />
+        <HeaderButton />
+      </div>
+      <div className='content'></div>
     </div>
   );
 }

@@ -10,7 +10,7 @@ function HeaderButton({ title }) {
     return (
         <button className={isActive ? 'active' : ''} onClick={toggleActive}>
             {title}
-        </button>
+        </button>   
     )
 }
 export default HeaderButton;

@@ -8,7 +8,7 @@ function HeaderButton({ title }) {
     }
     console.log(title);
     return (
-        <button className={isActive ? 'active' : ''} onClick={toggleActive}>
+        <button className={isActive ? title : ''} onClick={toggleActive}>
             {title}
         </button>   
     )

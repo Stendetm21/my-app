@@ -28,6 +28,22 @@ function App() {
     setPosts(posts.filter(post => post.id !== id));
   }
 
+  function toggleOpen(id) {
+    setPosts(posts.map(post =>
+      post.id === id ? { ...post, opened: !post.opened } : post
+    ));
+  }
+
+  function filterTasks(criteria) {
+    if (criteria === 'Completed') {
+      return posts.filter(post => post.completed);
+    }
+    if (criteria === 'Active') {
+      return posts.filter(post => !post.completed);
+    }
+    return posts; // по умолчанию All
+  }
+
   return (
     <div className='App'>
       <div className='header'>
@@ -43,6 +59,7 @@ function App() {
             task={post}
             onToggle={toggleTask}
             onDelete={deleteTask}
+            onOpen={toggleOpen}
           />
         ))}
       </div>

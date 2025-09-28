@@ -1,4 +1,14 @@
+import { useState } from "react";
 const Task = ({ task, onToggle, onDelete, onOpen }) => {
+    const [stateButtons, setStateButtons] = useState(['Completed', 'Reopen']);
+    function toggleButtons() {
+        if (stateButtons[0] === 'Completed') {
+            setStateButtons(['Reopen', 'Completed']);
+        }
+        if (stateButtons[0] === 'Reopen') {
+            setStateButtons(['Completed', 'Reopen']);
+        }
+    }
     return (
         <div className={`task${task.completed ? ' completed' : ''}`}>
             <div
@@ -14,7 +24,9 @@ const Task = ({ task, onToggle, onDelete, onOpen }) => {
 
             {task.opened && (   // кнопки появятся только при task.opened === true
                 <div className="buttons">
-                    <button onClick={() => onToggle(task.id)}>Completed</button>
+                    <button onClick={() => {onToggle(task.id); toggleButtons()}}>
+                        {stateButtons[0]}
+                    </button>
                     <button onClick={() => onDelete(task.id)}>Delete</button>
                 </div>
             )}

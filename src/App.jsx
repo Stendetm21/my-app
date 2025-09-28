@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import HeaderButton from './components/HeaderButton';
 import Task from './components/Task';
+import TestComponent from './components/test';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -16,11 +17,22 @@ function App() {
     { id: 3, title: 'Completed' },
     { id: 4, title: 'Clear Completed' },
   ]);
-  const [activeFilter, setActiveFilter] = useState('All');
 
+  const [testProps, setTestProps] = useState('Test Props state');
+  const [activeFilter, setActiveFilter] = useState('All');
+  function testFunction() {
+    if (testProps === 'Test Props state') {
+      setTestProps('Updated Test Props state');
+      if (testProps === 'Updated Test Props state') {
+        setTestProps('Test Props state');
+      }
+    } else {
+      setTestProps('Test Props state');
+    }
+  }
 
   function toggleTask(id) {
-    setPosts(posts.map(post => 
+    setPosts(posts.map(post =>
       post.id === id ? { ...post, completed: !post.completed } : post
     ));
   }
@@ -49,8 +61,8 @@ function App() {
 
       <div className='content'>
         {posts.map((post) => (
-          <Task 
-            key={post.id} 
+          <Task
+            key={post.id}
             task={post}
             onToggle={toggleTask}
             onDelete={deleteTask}
@@ -58,6 +70,7 @@ function App() {
           />
         ))}
       </div>
+      <TestComponent onTest={testFunction} props1={testProps} props2={'Prop 2'} props3={'Prop 3'} />
     </div>
   );
 }

@@ -8,6 +8,9 @@ const Task = ({ task, onToggle, onDelete, onOpen }) => {
             >
                 {task.text}
             </div>
+            <div className="description">
+                {task.opened && task.description}
+            </div>
 
             {task.opened && (   // кнопки появятся только при task.opened === true
                 <div className="buttons">

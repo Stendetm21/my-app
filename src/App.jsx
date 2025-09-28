@@ -6,11 +6,12 @@ import TestComponent from './components/test';
 
 function App() {
   const [posts, setPosts] = useState([
-    { id: 1, text: 'Learn React', completed: false },
-    { id: 2, text: 'Build a Todo App', completed: true },
-    { id: 3, text: 'Master JavaScript', completed: false },
-    { id: 4, text: 'Explore CSS', completed: true },
+    { id: 1, text: 'Learn React', description: 'Учим основы React, компоненты, хуки и JSX.', completed: false },
+    { id: 2, text: 'Build a Todo App', description: 'Создаём простое приложение Todo с возможностью добавлять, удалять и отмечать задачи.', completed: true },
+    { id: 3, text: 'Master JavaScript', description: 'Прокачиваем знание JS: функции, массивы, объекты, асинхронность.', completed: false },
+    { id: 4, text: 'Explore CSS', description: 'Разбираемся с Flexbox, Grid, анимациями и стилями.', completed: true },
   ]);
+
   const [headerTitle, setHeaderTitle] = useState([
     { id: 1, title: 'All' },
     { id: 2, title: 'Active' },

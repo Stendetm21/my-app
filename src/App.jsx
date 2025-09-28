@@ -50,6 +50,18 @@ function App() {
 
   function setFilter(filter) {
     setActiveFilter(filter);
+    if (filter === 'All') {
+      setPosts(posts);
+    }
+    if (filter === 'Active') {
+      setPosts(posts.filter(post => !post.completed));
+    }
+    if (filter === 'Completed') {
+      setPosts(posts.filter(post => post.completed));
+    }
+    if (filter === 'Clear Completed') {
+      setPosts(posts.filter(post => !post.completed));
+    }
   }
 
   return (

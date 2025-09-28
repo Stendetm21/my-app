@@ -22,10 +22,14 @@ const Task = ({ task, onToggle, onDelete, onOpen }) => {
                 {task.opened && task.description}
             </div>
 
-            {task.opened && (   // кнопки появятся только при task.opened === true
+            {task.opened && (
                 <div className="buttons">
-                    <button onClick={() => {onToggle(task.id); toggleButtons()}}>
-                        {stateButtons[0]}
+                    <button onClick={() => {
+                    toggleButtons();
+                    onOpen(task.id);
+                    onToggle(task.id);
+                    }}>
+                    {stateButtons[0]}
                     </button>
                     <button onClick={() => onDelete(task.id)}>Delete</button>
                 </div>

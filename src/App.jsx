@@ -16,6 +16,7 @@ function App() {
     { id: 3, title: 'Completed' },
     { id: 4, title: 'Clear Completed' },
   ]);
+  const [activeFilter, setActiveFilter] = useState('All');
 
 
   function toggleTask(id) {
@@ -34,14 +35,8 @@ function App() {
     ));
   }
 
-  function filterTasks(criteria) {
-    if (criteria === 'Completed') {
-      return posts.filter(post => post.completed);
-    }
-    if (criteria === 'Active') {
-      return posts.filter(post => !post.completed);
-    }
-    return posts; // по умолчанию All
+  function setFilter(filter) {
+    setActiveFilter(filter);
   }
 
   return (

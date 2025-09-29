@@ -54,6 +54,12 @@ function App() {
     return true; // All
   });
 
+  const addNewTask = () => {
+    // логика добавления новой задачи
+    const newTask = { id: Date.now(), text: 'New Task', description: 'Task description', completed: false };
+    setPosts([...posts, newTask]);
+  }
+
   return (
     <div className='App'>
       <div className='header'>
@@ -79,7 +85,7 @@ function App() {
       </div>
       <MyInput placeholder="New task" />
       <MyInput placeholder="description" />
-      <MyButton>Click Me</MyButton>
+      <MyButton onClick={addNewTask}>Create</MyButton>
 
 
     </div>

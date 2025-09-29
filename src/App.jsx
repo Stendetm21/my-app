@@ -2,8 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import HeaderButton from './components/HeaderButton';
 import Task from './components/Task';
-import TestComponent from './components/test';
-import InputCreateTask from './components/InputCreateTask';
+import MyButton from './components/UI/MyButton';
+import MyInput from './components/UI/MyInput';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -76,7 +76,6 @@ function App() {
       </div>
 
       <div className='content'>
-        <InputCreateTask />
         {filteredPosts.map((post) => (
           <Task
             key={post.id}
@@ -87,6 +86,10 @@ function App() {
           />
         ))}
       </div>
+      <MyButton onClick={() => alert('Clicked!')}>Click Me</MyButton>
+      <MyInput placeholder="New task" />
+      <MyInput type="text" placeholder="description" />
+
       <TestComponent onTest={testFunction} props1={testProps} props2={'Prop 2'} props3={'Prop 3'} />
     </div>
   );

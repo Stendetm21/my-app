@@ -2,8 +2,8 @@ import { useState } from 'react'
 import './App.css'
 import HeaderButton from './components/HeaderButton';
 import Task from './components/Task';
-import MyButton from './components/UI/MyButton';
-import MyInput from './components/UI/MyInput';
+import MyButton from './components/UI/button/MyButton';
+import MyInput from './components/UI/input/MyInput';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -20,16 +20,7 @@ function App() {
     { id: 4, title: 'Clear Completed' },
   ]);
 
-  const [testProps, setTestProps] = useState('Test Props state');
   const [activeFilter, setActiveFilter] = useState('All');
-
-  function testFunction() {
-    if (testProps === 'Test Props state') {
-      setTestProps('Updated Test Props state');
-    } else {
-      setTestProps('Test Props state');
-    }
-  }
 
   function toggleTask(id) {
     setPosts(posts.map(post =>
@@ -86,11 +77,11 @@ function App() {
           />
         ))}
       </div>
-      <MyButton onClick={() => alert('Clicked!')}>Click Me</MyButton>
       <MyInput placeholder="New task" />
-      <MyInput type="text" placeholder="description" />
+      <MyInput placeholder="description" />
+      <MyButton>Click Me</MyButton>
 
-      <TestComponent onTest={testFunction} props1={testProps} props2={'Prop 2'} props3={'Prop 3'} />
+
     </div>
   );
 }

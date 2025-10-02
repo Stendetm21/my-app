@@ -22,6 +22,10 @@ function App() {
 
   const [activeFilter, setActiveFilter] = useState('All');
 
+  const testCallBack = (a) => {
+    console.log('test', a);
+  }
+
   function toggleTask(id) {
     setPosts(posts.map(post =>
       post.id === id ? { ...post, completed: !post.completed } : post
@@ -83,7 +87,7 @@ function App() {
           />
         ))}
       </div>
-      <MyInput placeholder="New task" />
+      <MyInput test={testCallBack} placeholder="New task" />
       <MyInput placeholder="description" />
       <MyButton onClick={addNewTask}>Create</MyButton>
 

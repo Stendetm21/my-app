@@ -4,6 +4,7 @@ import HeaderButton from './components/HeaderButton';
 import Task from './components/Task';
 import MyButton from './components/UI/button/MyButton';
 import MyInput from './components/UI/input/MyInput';
+import AddTaskForm from './components/AddTaskForm';
 
 function App() {
   const [posts, setPosts] = useState([
@@ -81,11 +82,7 @@ function App() {
           />
         ))}
       </div>
-      <MyInput placeholder="New task" />
-      <MyInput placeholder="description" />
-      <MyButton create={createTask}>Create</MyButton>
-
-
+      <AddTaskForm create={createTask}/>      
     </div>
   );
 }

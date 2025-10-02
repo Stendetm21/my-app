@@ -22,10 +22,6 @@ function App() {
 
   const [activeFilter, setActiveFilter] = useState('All');
 
-  const testCallBack = (a) => {
-    console.log('test', a);
-  }
-
   function toggleTask(id) {
     setPosts(posts.map(post =>
       post.id === id ? { ...post, completed: !post.completed } : post
@@ -58,10 +54,8 @@ function App() {
     return true; // All
   });
 
-  const addNewTask = () => {
-    // логика добавления новой задачи
-    const newTask = { id: Date.now(), text: 'New Task', description: 'Task description', completed: false };
-    setPosts([...posts, newTask]);
+  const createTask = (newPost) => {
+    setPosts([...posts, newPost]);
   }
 
   return (
@@ -87,9 +81,9 @@ function App() {
           />
         ))}
       </div>
-      <MyInput test={testCallBack} placeholder="New task" />
+      <MyInput placeholder="New task" />
       <MyInput placeholder="description" />
-      <MyButton onClick={addNewTask}>Create</MyButton>
+      <MyButton create={createTask}>Create</MyButton>
 
 
     </div>
